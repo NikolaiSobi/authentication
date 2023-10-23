@@ -37,6 +37,10 @@ def register():
 
     return render_template('registerForm.html', form=form)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    
+
 
 @app.route('/secret')
 def secret():
