@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    {% for message in get_flashed_messages() %}
+        {{message}}
+    {% endfor %}
     <form action="/register" method="POST">
         {{ form.hidden_tag() }}
         {% for field in form

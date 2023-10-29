@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Feedback</title>
+</head>
+<body>
+    <form action="/user/{{user.username}}/feedback/add" method="POST">
+        <input type="text" placeholder="Title" name="title">
+        <textarea name="feedback" placeholder="Feedback" cols="30" rows="5"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

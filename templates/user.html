@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>User Information</h3>
+    <p>First Name: {{username.first_name}}</p>
+    <p>Last Name: {{username.last_name}}</p>
+    <p>Username: {{username.username}}</p>
+    <p>Email: {{username.email}}</p>
+    <form action="/user/{{username.username}}/feedback/add">
+        <button type="submit">Add Feedback</button>
+    </form>
+    <form action="/user/{{username.username}}/delete" method="POST">
+        <button type="submit">Delete User</button>
+    </form>
+
+    <h2>{{username.username}}'s feedback</h2>
+    {% for post in feedback %}
+        {% if post.username == username.username %}
+            <div style="border: 1px solid black;">
+                <h2 style="text-align: center;">{{post.title}}</h2>
+                <p>{{post.content}}</p>
+
+                <form action="/feedback/{{post.id}}/update">
+                    <button type="submit">Edit</button>
+                </form>
+
+                <form action="/feedback/{{post.id}}/delete">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
+        <a href="/logout">log out</a>
+        
+    
+</body>
+</html>
